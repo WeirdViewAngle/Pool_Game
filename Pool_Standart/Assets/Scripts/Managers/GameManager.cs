@@ -29,12 +29,11 @@ public class GameManager : IntEventInvoker
     #endregion
 
 
-    public int filledBallsCount;
-    public int striptedBallsCount;
-    public float ballForce;
-    public GameObject floor;
+    public int filledBallsCount, striptedBallsCount;
+    public GameObject floor, Table;
 
     public List<GameObject> ballsOnTheDesk;
+
 
     void OnEnable()
     {
@@ -53,32 +52,11 @@ public class GameManager : IntEventInvoker
         //endTurn Event add
         dictOfInvokers.Add(EventsNames.turnEndEvent, new TurnEndEvent());
         EventManager.AddInvoker(EventsNames.turnEndEvent, this);
-        EventManager.AddListener(EventsNames.turnEndEvent, CheckForBallLose);
     }
 
     void Start()
     {
         dictOfInvokers[EventsNames.gameStartedEvent].Invoke(1);
-    }
-
-    void Update()
-    {
-        
-    }
-    void CheckForBallLose(int unused)
-    {
-        foreach(GameObject ball in ballsOnTheDesk)
-        {
-            if (ball.GetComponent<BallBehaviour>().BallNumber == 8)
-            {
-                dictOfInvokers[EventsNames.gameWinEvent].Invoke(0);
-            }
-            else if(ball.transform.position.y < floor.transform.position.y)
-            {
-                dictOfInvokers[EventsNames.removeBallEvent].Invoke(ball.GetComponent<BallBehaviour>().BallNumber);
-                ballsOnTheDesk.Remove(ball);
-            }
-        }
     }
 
 }

@@ -8,6 +8,7 @@ TagManager:
   - BlackBall
   - StripedBall
   - FilledBall
+  - Table
   layers:
   - Default
   - TransparentFX

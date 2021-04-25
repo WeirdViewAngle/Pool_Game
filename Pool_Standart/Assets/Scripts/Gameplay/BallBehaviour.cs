@@ -7,30 +7,42 @@ public class BallBehaviour : IntEventInvoker
 {
     //Variables
     public int _ballNumberInt;
-    public float DefaultForce;
 
     public int BallNumber
     {
         get { return _ballNumberInt; }
     }
 
-    //Rigidbody
-    Rigidbody rigidbody;
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-
         EventManager.AddListener(EventsNames.removeBallEvent, RemoveBall);
-
-        if(gameObject.tag == "WhiteBall")
-        {
-            rigidbody.AddForce((GameManager.Instance.ballsOnTheDesk[1].gameObject.transform.position * DefaultForce) * Time.deltaTime, ForceMode.Impulse); 
-        }
     }
 
-    void OnCollisionEnter(Collision coll)
+    private void Update()
     {
-        //rigidbody.AddForce(coll.relativeVelocity);
+        if(gameObject.transform.position.y < GameManager.Instance.Table.transform.position.y)
+        {
+            GameManager.Instance.ballsOnTheDesk.Remove(gameObject);
+            if(gameObject.tag == "FilledBall")
+            {
+                //add points
+            }
+            else if(gameObject.tag == "StripedBall")
+            {
+
+            }
+            else if(gameObject.tag == "WhiteBall")
+            {
+
+            }
+            else
+            {
+
+            }
+
+
+            Destroy(gameObject);
+        }
     }
 
 
