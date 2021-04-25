@@ -29,10 +29,15 @@ public class GameManager : IntEventInvoker
     #endregion
 
 
-    public int filledBallsCount, striptedBallsCount;
-    public GameObject floor, Table;
-
+    public GameObject Table;
     public List<GameObject> ballsOnTheDesk;
+    enum players 
+    {
+        playerOne,
+        playerTwo
+    }
+    int playerActive;
+        
 
 
     void OnEnable()
@@ -45,13 +50,15 @@ public class GameManager : IntEventInvoker
         dictOfInvokers.Add(EventsNames.gameWinEvent, new GameWinEvent());
         EventManager.AddInvoker(EventsNames.gameWinEvent, this);
 
-        //add removeBall invoker
-        dictOfInvokers.Add(EventsNames.removeBallEvent, new RemoveBallEvent());
-        EventManager.AddInvoker(EventsNames.removeBallEvent, this);
+        //add nextTurn Event
+        dictOfInvokers.Add(EventsNames.nextTurnEvent, new NextTurnEvent());
+        EventManager.AddInvoker(EventsNames.nextTurnEvent, this);
+        EventManager.AddListener(EventsNames.nextTurnEvent, SwitchPlayerActive);
 
-        //endTurn Event add
         dictOfInvokers.Add(EventsNames.turnEndEvent, new TurnEndEvent());
         EventManager.AddInvoker(EventsNames.turnEndEvent, this);
+
+        EventManager.AddListener(EventsNames.wrongBallTouchEvent, RulesBreakHandler);
     }
 
     void Start()
@@ -59,4 +66,51 @@ public class GameManager : IntEventInvoker
         dictOfInvokers[EventsNames.gameStartedEvent].Invoke(1);
     }
 
+    private void Update()
+    {
+
+    }
+
+    void SwitchPlayerActive(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                playerActive = (int)players.playerOne;
+                break;
+
+            case 2:
+                playerActive = (int)players.playerTwo;
+                break;
+        }
+    }
+
+    void RulesBreakHandler(int num)
+    {
+        //1 - Wrong Ball hit
+        //2 - Black Ball hit
+        //3 - Wrong Ball in the loose
+        //4 - White Ball int the loose
+        //5 - Black Ball int he loose
+        if(num == 1)
+        {
+
+        }
+        else if(num == 2)
+        {
+
+        }
+        else if(num == 3)
+        {
+
+        }
+        else if(num == 4)
+        {
+            
+        }
+        else
+        {
+            dictOfInvokers[EventsNames.gameWinEvent].Invoke(playerActive);
+        }
+    }
 }

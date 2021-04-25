@@ -13,10 +13,6 @@ public class BallBehaviour : IntEventInvoker
         get { return _ballNumberInt; }
     }
 
-    private void Start()
-    {
-        EventManager.AddListener(EventsNames.removeBallEvent, RemoveBall);
-    }
 
     private void Update()
     {

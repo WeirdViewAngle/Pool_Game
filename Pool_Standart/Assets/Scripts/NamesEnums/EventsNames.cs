@@ -6,7 +6,8 @@ public enum EventsNames
 {
     gameStartedEvent,
     gameWinEvent,
-    removeBallEvent,
-    turnEndEvent
+    nextTurnEvent,
+    turnEndEvent,
+    wrongBallTouchEvent
 
 }
