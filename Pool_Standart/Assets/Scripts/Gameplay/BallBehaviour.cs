@@ -7,6 +7,7 @@ public class BallBehaviour : IntEventInvoker
 {
     //Variables
     public int _ballNumberInt;
+    public Vector3 ballMaxJumpHight;
 
     public int BallNumber
     {
@@ -16,18 +17,18 @@ public class BallBehaviour : IntEventInvoker
 
     private void Update()
     {
-        if(gameObject.transform.position.y < GameManager.Instance.Table.transform.position.y)
+        if(transform.position.y < GameManager.Instance.Table.transform.position.y)
         {
             GameManager.Instance.ballsOnTheDesk.Remove(gameObject);
-            if(gameObject.tag == "FilledBall")
+            if(tag == "FilledBall")
             {
                 //add points
             }
-            else if(gameObject.tag == "StripedBall")
+            else if(tag == "StripedBall")
             {
 
             }
-            else if(gameObject.tag == "WhiteBall")
+            else if(tag == "WhiteBall")
             {
 
             }
@@ -35,7 +36,6 @@ public class BallBehaviour : IntEventInvoker
             {
 
             }
-
 
             Destroy(gameObject);
         }

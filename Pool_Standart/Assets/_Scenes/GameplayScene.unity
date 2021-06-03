@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -463,6 +463,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &367098389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367098391}
+  - component: {fileID: 367098390}
+  m_Layer: 2
+  m_Name: JumpBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &367098390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367098389}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &367098391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367098389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.9752693, y: 1.6999999, z: 2.2683582}
+  m_LocalScale: {x: 19.600077, y: 0.5, z: 35.09939}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &424220334
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -551,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 10
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &427510802
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -561,7 +606,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -897,7 +942,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1026,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 2
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &553946757
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1036,7 +1082,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1203,9 +1249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb6d4943f4a6f47892db009f908b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filledBallsCount: 7
-  striptedBallsCount: 7
-  floor: {fileID: 738148130}
   Table: {fileID: 911167935}
   ballsOnTheDesk:
   - {fileID: 732547348}
@@ -1535,7 +1578,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2213,6 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 1
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &990708780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2223,7 +2267,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2347,6 +2391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 3
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &993029834
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2357,7 +2402,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2692,6 +2737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 15
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &1358364040
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2702,7 +2748,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2926,6 +2972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 7
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &1463024323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2936,7 +2983,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3235,6 +3282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 5
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &1591815147
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3245,7 +3293,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3312,6 +3360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 11
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &1929502796
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3322,7 +3371,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3476,6 +3525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 6
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &2079870929
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3486,7 +3536,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3628,6 +3678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 14
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &2087783540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3638,7 +3689,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3684,6 +3735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 12
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &2098384402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3694,7 +3746,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3890,6 +3942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 9
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &2108273482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3900,7 +3953,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4014,6 +4067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 13
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &2125202827
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4024,7 +4078,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4131,6 +4185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballNumberInt: 4
+  ballMaxJumpHight: {x: 0, y: 0, z: 0}
 --- !u!54 &2133509523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4141,7 +4196,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
